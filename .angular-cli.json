@@ -19,9 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "assets/AdminLTE-2.3.11/bootstrap/css/bootstrap.min.css",
+        "assets/AdminLTE-2.3.11/dist/css/AdminLTE.min.css",
+        "assets/AdminLTE-2.3.11/dist/css/skins/skin-blue.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "assets/AdminLTE-2.3.11/bootstrap/js/bootstrap.min.js",
+        "assets/AdminLTE-2.3.11/dist/js/app.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
