@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stock
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
@@ -26,3 +27,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# stock
+股票管理系统客户端
+>>>>>>> 0d9e0d846bcf27f280aa9e87d0e7507a6d6d3354
