@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StockFilterPipe } from './stock/stock-filter.pipe'
 import { HttpModule } from '@angular/http'
 import { SocketService } from './header/socket.service'
+import {HashLocationStrategy,LocationStrategy} from '@angular/common'
 
 const routeConfig: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -46,7 +47,7 @@ const routeConfig: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [StockService, SocketService],
+  providers: [StockService, SocketService,{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

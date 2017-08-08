@@ -32,24 +32,27 @@ export class StockFormComponent implements OnInit {
       ], this.categoriesSelectValidator)
     });
 
-    this.stockService.getStock(stockId).subscribe(
-      data => {
-        this.stock = data
-        this.formModel.reset({
-          name: data.name,
-          price: data.price,
-          desc: data.desc,
-          categories: [
-            data.categories.indexOf(this.categories[0]) != -1,
-            data.categories.indexOf(this.categories[1]) != -1,
-            data.categories.indexOf(this.categories[2]) != -1
-          ]
-        })
-      }
-    )
+    if (stockId != 0) {
+      this.stockService.getStock(stockId).subscribe(
+        data => {
+          this.stock = data
+          this.formModel.reset({
+            name: data.name,
+            price: data.price,
+            desc: data.desc,
+            categories: [
+              data.categories.indexOf(this.categories[0]) != -1,
+              data.categories.indexOf(this.categories[1]) != -1,
+              data.categories.indexOf(this.categories[2]) != -1
+            ]
+          })
+        }
+      )
+    }
+
   }
 
-  categoriesSelectValidator(control: FormArray) {
+  categoriesSelectValidator(control: FormArray): any {
     var valid = false;
     control.controls.forEach(control => {
       if (control.value) {
@@ -64,7 +67,8 @@ export class StockFormComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigateByUrl('/stock')
+    // this.router.navigateByUrl('/stock')
+    this.router.navigate(['/stock'])
   }
 
   save() {
@@ -77,8 +81,9 @@ export class StockFormComponent implements OnInit {
     }
     this.formModel.value.categories = chineseCategories;
     this.formModel.value.rating = this.stock.rating;
-    console.log(this.formModel.value)
+    // console.log(this.formModel.value)
     // this.router.navigateByUrl('/stock')
+    this.router.navigate(['/stock'])
   }
 
 }
