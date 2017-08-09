@@ -80,8 +80,20 @@ export class StockFormComponent implements OnInit {
     }
     this.formModel.value.categories = chineseCategories;
     this.formModel.value.rating = this.stock.rating;
-    // console.log(this.formModel.value)
-    this.router.navigateByUrl('/stock')
+    console.log(this.formModel.value)
+    let stock = new Stock(
+      this.routeInfo.snapshot.params['id'],
+      this.formModel.value.name,
+      this.formModel.value.price,
+      this.formModel.value.rating,
+      this.formModel.value.desc,
+      this.formModel.value.categories
+    );
+    // console.log(stock)
+    this.stockService.saveStock(stock).subscribe(
+      data => {
+        this.router.navigateByUrl('/stock');
+      })
   }
-
 }
+

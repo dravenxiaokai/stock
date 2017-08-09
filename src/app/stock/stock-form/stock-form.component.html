@@ -16,13 +16,13 @@
                 <span class="help-block" [class.hidden]="formModel.get('name').untouched || !formModel.hasError('required','name')">股票名称是必填项</span>
                 <span class="help-block" [class.hidden]="formModel.get('name').untouched || !formModel.hasError('minlength','name')">请至少输入3个字</span>
             </div>
-            <div class="form-group" [class.has-error]="formModel.hasError('required','price')">
+            <div class="form-group" [class.has-error]="formModel.get('price').touched && formModel.hasError('required','price')">
                 <label for="price" class="col-sm-2 control-label">股票价格</label>
 
                 <div class="col-sm-6">
                     <input formControlName="price" type="number" class="form-control" id="price" placeholder="股票价格">
                 </div>
-                <span class="help-block" [class.hidden]="!formModel.hasError('required','price')">股票价格是必填项</span>
+                <span class="help-block" [class.hidden]="formModel.get('price').untouched || !formModel.hasError('required','price')">股票价格是必填项</span>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">股票星级</label>
@@ -38,7 +38,7 @@
                     <textarea formControlName="desc" class="form-control" id="desc" rows="5">{{stock.desc}}</textarea>
                 </div>
             </div>
-            <div class="form-group" [class.has-error]="formModel.hasError('categoriesLength','categories')">
+            <div class="form-group" [class.has-error]="formModel.get('categories').touched && formModel.hasError('categoriesLength','categories')">
                 <label class="col-sm-2 control-label">股票类型</label>
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="row" formArrayName="categories">
@@ -50,13 +50,13 @@
                             </div>
                         </div>
                     </div>
-                    <span class="help-block" [class.hidden]="!formModel.hasError('categoriesLength','categories')">请至少选择一个类型</span>
+                    <span class="help-block" [class.hidden]="formModel.get('categories').untouched || !formModel.hasError('categoriesLength','categories')">请至少选择一个类型</span>
                 </div>
             </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <button (click)="cancel()" type="button" class="btn btn-default">取消</button>
+            <button (click)="cancel()" type="button" type="submit" class="btn btn-default">取消</button>
             <button (click)="save()" [disabled]="formModel.invalid" type="submit" class="btn btn-info pull-right">保存</button>
         </div>
         <!-- /.box-footer -->

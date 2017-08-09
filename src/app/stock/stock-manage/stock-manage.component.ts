@@ -24,7 +24,10 @@ export class StockManageComponent implements OnInit {
     this.stocks = this.stockService.getStocks();
     this.nameFilter.valueChanges
       .debounceTime(500)
-      .subscribe(value => this.keyword = value)
+      .subscribe(value => {
+        this.keyword = value
+        this.stocks = this.stockService.getStocks(this.keyword)
+      })
   }
 
   create() {
@@ -34,5 +37,13 @@ export class StockManageComponent implements OnInit {
   update(stock: Stock) {
     this.router.navigateByUrl('/stock/' + stock.id)
   }
+
+  deleteStock(stock:Stock){
+    this.stockService.deleteStock(stock.id).subscribe(
+      data =>{
+        this.ngOnInit();
+      }
+    )
+}
 
 }

@@ -29,8 +29,8 @@
         <td>{{stock.price}}</td>
         <td><app-stars [rating]="stock.rating"></app-stars></td>
         <td>
-          <a class="btn btn-warning btn-xs" (click)="update(stock);false"><span class="glyphicon glyphicon-pencil"></span>修改</a>
-          <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>删除</a>
+          <a class="btn btn-warning btn-xs" (click)="update(stock)"><span class="glyphicon glyphicon-pencil"></span>修改</a>
+          <a class="btn btn-danger btn-xs" (click)="deleteStock(stock)"><span class="glyphicon glyphicon-remove"></span>删除</a>
         </td>
       </tr>
 
