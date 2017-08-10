@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   constructor(public socketService: SocketService) { }
 
   ngOnInit() {
-    this.socketService.createObservableSocket('ws://stock.draven.ren:8085')
+    this.socketService.createObservableSocket('ws://112.74.212.128:8085')
       .map(event => JSON.parse(event))
       .subscribe(event => this.messageCount = event.messageCount)
   }
